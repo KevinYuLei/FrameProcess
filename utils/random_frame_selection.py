@@ -30,6 +30,10 @@ def random_frame_selection(source_dir, output_dir, step=30):
                 output_video_folder = os.path.join(output_dir, video_frames_folder)
                 if not os.path.exists(output_video_folder):
                     os.makedirs(output_video_folder)
+                    print(f"帧图像保存路径: '{output_video_folder}' 不存在，已成功创建！")
+                else:
+                    print(f"帧图像保存路径: '{output_video_folder}' 已存在，停止抽取该视频:{video_frames_folder} 帧图像！")
+                    continue
                 
                 # 按照步长遍历并随机选取每组中的一帧
                 for i in range(0, len(frame_files), step):

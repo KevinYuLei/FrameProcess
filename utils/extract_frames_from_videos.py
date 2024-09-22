@@ -47,9 +47,10 @@ def extract_frames_from_videos(
             filename_dir = os.path.join(output_dir, os.path.splitext(filename)[0])
             if not os.path.exists(filename_dir):
                 os.makedirs(filename_dir)
-                print(f"帧图像保存子路径: '{output_dir}' 不存在，已成功创建！")
+                print(f"帧图像保存子路径: '{filename_dir}' 不存在，已成功创建！")
             else:
-                print(f"帧图像保存子路径: '{output_dir}' 已存在！")
+                print(f"帧图像保存子路径: '{filename_dir}' 已存在,不对该视频: {filename} 进行处理！")
+                continue
             output_path = os.path.join(output_dir, os.path.splitext(filename)[0], os.path.splitext(filename)[0]+f'_frame_%05d.{output_image_format}')
 
             # 构建输出参数，基于不同图片格式指定不同的质量选项
